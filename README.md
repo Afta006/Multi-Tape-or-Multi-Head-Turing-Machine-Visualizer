@@ -1,16 +1,5 @@
 # Multi-Head Turing Machine Simulator
 
-![Turingkit Screnshot](https://res.cloudinary.com/dqvwf3z2c/image/upload/v1774680953/734shots_so_nu3im0.png)
-<br>
-
-<div align="center">
-
-  <a href="https://turingkit.vercel.app">
-    <img src="https://img.shields.io/badge/Live%20Demo-turingkit.vercel.app-blue?style=flat-square" alt="Live Site" />
-  </a>
-</div>
-<br>
-
 An interactive web app for building and simulating multi-tape / multi-head Turing Machines.
 
 You can:
