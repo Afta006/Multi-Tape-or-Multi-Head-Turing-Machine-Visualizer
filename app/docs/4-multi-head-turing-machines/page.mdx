@@ -1,0 +1,195 @@
+## Multi-Head Turing Machine
+
+---
+
+# 1. What is a Multi-Head Turing Machine
+
+A Multi-Head Turing Machine (MHTM) is a variant of the standard Turing Machine that uses a **single tape with multiple read/write heads**, instead of multiple tapes.
+
+Each head can independently read, write, and move on the same tape.
+
+---
+
+# 2. Formal Definition
+
+A Multi-Head Turing Machine is defined as:
+
+```
+M = (Q, Σ, δ, Γ, q0, B, F, k)
+```
+
+Where:
+
+* `Q` → finite set of states  
+* `Σ` → input alphabet  
+* `δ` → transition function  
+* `Γ` → tape alphabet (Σ ⊆ Γ)  
+* `q0` → start state  
+* `B` → blank symbol  
+* `F` → set of final (accepting) states  
+* `k` → Number of heads on the tape  
+
+---
+
+# 3. Intuition of Multi-Head
+
+Single head:
+
+* One pointer → repeated scanning → inefficient
+
+Multi-head:
+
+* Multiple pointers on same tape  
+* Can access different positions simultaneously  
+
+Result:
+
+* Same computational power  
+* Reduces unnecessary movement  
+* Improves efficiency (often linear vs quadratic)
+
+---
+
+# 4. Example Language
+
+```
+L = { ww | w ∈ {a,b}* }
+```
+
+
+Strings like:
+
+* `aa`
+* `abab`
+* `bbbb`
+
+---
+
+# 5. High-Level Strategy (2-head TM)
+
+* One tape
+* Head 1 → start of string  
+* Head 2 → middle of string  
+
+Steps:
+
+1. Move Head 2 to the middle  
+2. Compare symbols under both heads  
+3. Move both heads right together  
+4. Accept if all symbols match  
+
+---
+
+# 6. Transition Rules Format
+
+**Compact format** (recommended):
+```
+q0,aa → q0,aa,RR
+```
+
+**Verbose format** (also supported):
+```
+q0,a,a → q0,a,a,R,R
+```
+
+## Format Explanation
+
+- In state `q0`
+- Read symbols under Head1 and Head2 (for 2-head machine): `aa` or `a,a`
+- Write symbols back: `aa` or `a,a`
+- Move both heads: `RR` (both right) or `R,R`
+- Go to state `q0`
+
+Where moves are:
+- `R` = move right
+- `L` = move left  
+- `S` = stay (no move)  
+
+---
+
+# 7. Example: Palindrome Check (Two Heads at Opposite Ends)
+
+## Tape Setup
+
+```
+String: a b c b a
+         ^     ^
+        H1    H2
+Position: 0 1 2 3 4
+```
+
+**Head 1** starts at **position 0** (left end)
+**Head 2** starts at **position 4** (right end)
+
+## Strategy
+
+1. Both heads read their current position
+2. If symbols match → both move towards center (H1 moves Right, H2 moves Left)
+3. If symbols don't match → REJECT
+4. When both heads reach blank or meet → ACCEPT
+
+## Rules
+
+```
+q_start,a,a -> q_start,a,a,R,L
+q_start,b,b -> q_start,b,b,R,L
+q_start,c,c -> q_start,c,c,R,L
+q_start,__ → q_accept,__,SS
+```
+
+| State    | Read (H1, H2) | Write (H1, H2) | Move (H1, H2) | Next      |
+|----------|---------------|----------------|---------------|-----------|
+| q_start  | (a, a)        | (a, a)         | (R, L)        | q_start   |
+| q_start  | (b, b)        | (b, b)         | (R, L)        | q_start   |
+| q_start  | (c, c)        | (c, c)         | (R, L)        | q_start   |
+| q_start  | (_, _)        | (_, _)         | (S, S)        | q_accept  |
+
+---
+
+# 8. Key Differences from Multi-Tape
+
+| Feature       | Multi-Tape TM       | Multi-Head TM        |
+|--------------|---------------------|----------------------|
+| Tapes         | Multiple            | One                  |
+| Heads         | One per tape        | k on same tape       |
+| Memory        | Separate tapes      | Shared tape          |
+| Access        | Independent         | Shared positions     |
+| Use case      | Storage separation  | Parallel scanning    |
+
+---
+
+# 9. Important Observations
+
+* Multi-head TM ≡ Single-tape TM (same power)  
+* Equivalent to multi-tape TM in computational power  
+* Used for:
+
+  * Parallel comparisons  
+  * Faster simulations  
+  * Pointer-based algorithms  
+
+---
+
+# 10. Clean Rule Template (Exam Use)
+
+Write rules like:
+
+```
+qi,(x1, x2, ..., xk) → (qj,(y1, y2, ..., yk),(m1, m2, ..., mk))
+```
+
+
+Where:
+
+* `xi` : symbols read under each head  
+* `yi` : symbols written  
+* `mi` in `L`, `R`, `S`  
+
+---
+
+# 11. Mental Model
+
+* Think **multiple pointers on one array**  
+* Heads = indices on same tape  
+* Transition = synchronized movement of pointers  
+* All heads read/write simultaneously on shared memory  

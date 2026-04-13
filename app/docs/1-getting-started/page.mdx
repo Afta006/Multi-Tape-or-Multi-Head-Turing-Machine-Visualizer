@@ -1,0 +1,76 @@
+# 🚀 Getting Started
+
+Welcome to the **TuringKit** platform! This project provides a fully interactive, web-based playground for building, simulating, and benchmarking Turing Machines. Specifically, it highlights the computational efficiency gained when transitioning from Single-Tape models to Multi-Tape configurations.
+
+---
+
+# 📦 Repository
+
+You can find the source code, open issues, or contribute to this project on GitHub:
+**[TuringKit GitHub Repository](https://github.com/Ayu-Rawat/multihead-turing-machine)**
+
+---
+
+# ✨ Key Features
+
+* **Interactive Simulator**: Define rules, configure tapes, step through executions, and visualize state transitions in real-time.
+* **Efficiency Benchmarks**: Directly compare O(N) multi-tape algorithms with their O(N^2) single-tape counterparts side-by-side.
+* **Custom TM Engine**: Write compact, readable machine configurations parsed entirely in the browser using a TypeScript Turing engine.
+* **Dark & Light Mode**: Built-in responsive theming for comfortable viewing.
+
+---
+
+# 🧰 Prerequisites
+
+Before installing the project, ensure your development environment includes:
+
+* **Node.js**: v18.0.0 or higher
+* **Package Manager**: npm (default), yarn, pnpm, or bun
+
+---
+
+# ▶️ How to Start
+
+Running the project locally:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Ayu-Rawat/multihead-turing-machine.git
+   cd multihead-turing-machine
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Launch the application:**
+   Open browser → [http://localhost:3000](http://localhost:3000)
+
+---
+
+# 🗂️ Project Structure Overview
+
+Key directories:
+
+* `/app` — Next.js App Router (UI pages like `/efficiency`, `/docs`)
+* `/components` — Reusable React components
+* `/lib/tm` — Core TM engine (parser + execution logic)
+* `/lib/efficiency` — Benchmark logic and algorithm comparisons
+
+---
+
+# 🏗️ Built With
+
+* **[Next.js 14+](https://nextjs.org/)** — App Router-based framework
+* **[React](https://react.dev/)** — UI and state management
+* **[TypeScript](https://www.typescriptlang.org/)** — Type-safe development
+* **[MDX](https://mdxjs.com/)** — Markdown + JSX for documentation pages

@@ -1,0 +1,130 @@
+# Efficiency & Complexity
+
+One of the primary purposes of **TuringKit** is to demonstrate how computational efficiency changes when moving from a **Single-Tape Turing Machine** to a **Multi-Tape Turing Machine**.
+
+---
+
+# ⚠️ The Quadratic Simulation Overhead
+
+A fundamental result in computation theory:
+
+> Any k-tape Turing machine that runs in time O(n) can be simulated by a single-tape Turing machine in time O(n^2).
+
+This does **not** mean multi-tape machines are more powerful. Both models recognize the same class of languages. The difference lies purely in **efficiency of computation**.
+
+---
+
+# 🚀 Why Multi-Tape is Faster
+
+## 1. Elimination of Repeated Scanning
+
+* **Single-tape**: Must repeatedly move back and forth across the tape to access different parts of data.
+* **Multi-tape**: Keeps different data on separate tapes with independent heads.
+
+**Result**: Avoids redundant traversal → reduces time complexity.
+
+---
+
+## 2. Parallel Data Access
+
+* Each tape has its own read/write head.
+* Operations on different parts of input can proceed without interference.
+
+**Effectively simulates parallelism**, even though the machine is still sequential.
+
+---
+
+## 3. Logical Separation of Roles
+
+Typical structure in multi-tape algorithms:
+
+* Tape 1 → Input
+* Tape 2 → Working memory
+* Tape 3 → Output / markers
+
+This removes the need for encoding multiple responsibilities onto a single tape.
+
+---
+
+# Where the Quadratic Slowdown Comes From 🐢
+
+A single-tape machine simulating multiple tapes must:
+
+1. Encode all tapes onto one tape (using delimiters)
+2. Track positions of multiple virtual heads
+3. Re-scan the tape repeatedly to locate symbols
+
+Each simulated step of the multi-tape machine may require a **full scan of the tape**.
+
+If multi-tape runs in t(n) steps:
+
+* Each step costs O(t(n)) work
+* Total becomes O(t(n)^2)
+
+---
+
+# ⚙️ Concrete Algorithm Comparisons
+
+# Binary Addition ➕
+
+* **Multi-tape (3 tapes)**:
+
+  * Tape 1: number A
+  * Tape 2: number B
+  * Tape 3: result
+  * Process digits in one pass → **O(n)**
+
+* **Single-tape**:
+
+  * Must shuttle between numbers and result positions
+  * Frequent repositioning → **O(n^2)**
+
+---
+
+# Palindrome Checking 🔍
+
+* **Multi-tape (2 tapes)**:
+
+  * Copy input to second tape
+  * Reverse and compare simultaneously → **O(n)**
+
+* **Single-tape**:
+
+  * Compare first and last, then shift inward repeatedly
+  * Requires rescanning → **O(n^2)**
+
+---
+
+# Substring Search 🔍
+
+* **Multi-tape**:
+
+  * Keep pattern fixed on one tape
+  * Slide text on another → **O(n) (for simple matching)**
+
+* **Single-tape**:
+
+  * Reposition pattern repeatedly for each comparison
+  * Nested scanning → **O(n^2)**
+
+---
+
+# 🧠 Key Insight 
+
+Multi-tape machines reduce **mechanical overhead**, not computational power.
+
+* Same problems solvable
+* Same languages recognized
+* Different **time cost of execution**
+
+---
+
+# Interpretation for TuringKit
+
+The [efficiency](https://turingkit.vercel.app/efficiency) dashboard visualizes:
+
+* Head movement differences
+* Number of steps taken
+* Tape utilization patterns
+
+This makes the **hidden cost of single-tape simulation visible**, especially the repeated scanning behavior that leads to quadratic slowdown.

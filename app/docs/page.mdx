@@ -1,0 +1,68 @@
+# 📘 Overview
+
+Welcome to the internal documentation for **TuringKit** 
+* A fast, interactive toolkit for building, visualizing, and simulating Turing Machines.
+
+# 📖 About the Project
+
+TuringKit is a fully web-based Turing Machine simulator created to make theoretical computer science accessible. Rather than writing long abstract tables on paper, users can define machines with a simple custom syntax. The application parses these rules directly in the browser using TypeScript and visualizes the tape execution step-by-step.
+
+A primary focus of this project is demonstrating the difference between **Single-Tape** and **Multi-Tape** architectures by benchmarking their O(N^2) vs O(N) execution speeds in real-time.
+
+---
+
+# ⌨️ Simulator Key Bindings
+
+To speed up interacting with the simulator playground, several keyboard shortcuts are available:
+
+* **`Spacebar` / `Right Arrow`**: Step forward (Execute a single machine instruction).
+* **`Left Arrow`**: Step backward (Undo a single machine instruction).
+* **`Ctrl + R`** : Reset the machine to its initial state.
+* **`Ctrl + F`** : Toggle Fullscreen mode for the tape visualizer.
+* **`Tab`** : Auto-indent inside the rules configuration editor.
+
+---
+
+# 🧾 Parsing Rules Syntax
+
+The machine parser relies on a clean, comma-separated configuration syntax. Every rule requires 2 main components on the left side of an arrow (`->`), and 3 corresponding components on the right side.
+
+**Format:**
+
+```
+CurrentState, ReadSymbols -> NextState, WriteSymbols, HeadMovements
+```
+
+## Components
+
+1. **State:** Any alphanumeric string (e.g., `q0`, `q_accept`, `scan_right`).
+2. **Symbols:** The characters evaluated by the read/write heads. `_` is used to denote a blank cell.
+3. **Movements:** Defined by exactly one letter per head:
+
+   * `R` or `r`: Move head Right
+   * `L` or `l`: Move head Left
+   * `S` or `s`: Stay (do not move head)
+
+## Single-Tape Example
+
+```
+# Increment the binary digit (Single head)
+q0, 0 -> q_done, 1, R
+```
+
+## Multi-Tape Example
+
+When configuring multiple tapes, the number of read symbols, write symbols, and movement directions **must map exactly to the number of heads**.
+
+```
+# 3-Tape machine (Reads 3 characters, Writes 3 characters, Moves 3 heads)
+q_add, 01_ -> q_add, 011, RRS
+```
+
+*(You can also use `#` to comment out your code!)*
+
+---
+
+# 📊 Summary
+
+This document outlines the theory, implementation details, and features of the Multi-Tape Turing Machine simulator. It covers foundational computation concepts, structural differences between machine models, and practical benchmarking of time complexity differences.

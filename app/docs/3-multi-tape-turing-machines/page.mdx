@@ -1,0 +1,157 @@
+## Multi-Tape Turing Machine
+
+---
+# 1. What is a Turing Machine
+
+A Multi-Tape Turing Machine (MTTM) is a variant of the standard Turing Machine that uses multiple tapes, each with its own read/write head, instead of a single tape.
+
+# 2. Formal Definition
+
+A Multi Head Turing Machine is defined as:
+
+```
+M = (Q, Σ, δ, Γ, q0, B, F, k)
+```
+
+Where:
+
+* `Q` → finite set of states
+* `Σ` → input alphabet
+* `δ` → transition function
+* `Γ` → tape alphabet (Σ ⊆ Γ)
+* `q0` → start state
+* `B` → blank symbol
+* `F` → set of final (accepting) states
+* `k` → Number of tapes in the machine
+---
+
+# 3. Intuition of Multi-Tape
+
+Single tape:
+
+* Everything on one tape → heavy backtracking
+
+Multi tape:
+
+* Tape 1 → input
+* Tape 2 → working memory
+* Tape 3 → output (optional)
+
+Result:
+
+* Same computational power
+* Much simpler design
+* Faster (polynomial improvement)
+
+---
+
+# 4. Example Language
+
+```
+L = { ww | w ∈ {a,b}*}
+```
+
+Strings like:
+
+* `aa`
+* `abab`
+* `bbbb`
+
+---
+
+# 5. High-Level Strategy (2-tape TM)
+
+* Tape 1: input
+* Tape 2: copy first half
+
+Steps:
+
+1. Copy input to Tape 2
+2. Move both heads to start
+3. Compare halves
+
+---
+
+# 6. Transition Rules Format
+
+General format:
+
+```
+q0,a,B → q1,aa,R,R
+```
+
+Meaning:
+
+* In state `q0`
+* Read `a` on Tape1 and `B` on Tape2
+* Read `a` on Tape1
+* Write `a` on Tape2
+* Move both heads right
+* Go to `q1`
+
+---
+
+# 7. Example: Copy Input from Tape1 → Tape2
+
+## Rules
+
+```
+q0,aB → q0,aa,RR
+q0,bB → q0,bb,RR
+q0,BB → q1,BB,LL
+```
+
+## Transition Table
+
+| State | Read (T1, T2) | Write (T1, T2) | Move (T1, T2) | Next |
+| ----- | ------------- | -------------- | ------------- | ---- |
+| q0    | (a, B)        | (a, a)         | (R, R)        | q0   |
+| q0    | (b, B)        | (b, b)         | (R, R)        | q0   |
+| q0    | (B, B)        | (B, B)         | (L, L)        | q1   |
+
+---
+
+# 8. Key Differences from Single Tape
+
+| Feature | Single Tape | Multi Tape   |
+| ------- | ----------- | ------------ |
+| Heads   | 1           | k            |
+| Read    | 1 symbol    | k symbols    |
+| Move    | 1 direction | k directions |
+| Speed   | slower      | faster       |
+| Power   | same        | same         |
+
+---
+
+# 9. Important Observations
+
+* Multi-tape TM ≡ Single-tape TM (same power)
+* Used for:
+
+  * Algorithm design clarity
+  * Complexity analysis
+* Any multi-tape TM can be converted to single-tape
+
+---
+
+# 10. Clean Rule Template (Exam Use)
+
+Write rules like:
+
+```
+qi, (x1, x2, ..., xk) → (qj, (y1, y2, ..., yk), (m1, m2, ..., mk))
+```
+
+Where:
+
+* `xi` : symbols read
+* `yi` : symbols written
+* `mi` in `L` (left), `R` (right), `S` (stay)
+
+---
+
+# 11. Mental Model
+
+* Think **parallel scanning**
+* Each tape = separate memory lane
+* Transition = synchronized multi-head action

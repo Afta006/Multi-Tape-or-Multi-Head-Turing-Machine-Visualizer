@@ -1,0 +1,188 @@
+## Turing Machine
+
+---
+
+# 1. What is a Turing Machine
+
+A **Turing Machine (TM)** is a theoretical model of computation used to define what can be computed.
+
+It consists of:
+
+* **Infinite tape** (memory)
+* **Tape head** (reads/writes symbols)
+* **Finite set of states**
+* **Transition function**
+
+---
+
+# 2. Formal Definition
+
+A Turing Machine is defined as:
+
+```
+M = (Q, Σ, δ, Γ, q0, B, F)
+```
+
+Where:
+
+* `Q` → finite set of states
+* `Σ` → input alphabet
+* `δ` → transition function
+* `Γ` → tape alphabet (Σ ⊆ Γ)
+* `q0` → start state
+* `B` → blank symbol
+* `F` → set of final (accepting) states
+
+---
+
+# 3. Transition Function
+
+```
+δ(q, a) = (p, b, D)
+```
+
+Meaning:
+
+* Current state = `q`
+* Read symbol = `a`
+* Go to state `p`
+* Write symbol `b`
+* Move head in direction `D`
+
+Where:
+
+* `D = L` (left), `R` (right), `S` (stay)
+
+---
+
+# 4. Transition Rule Format
+
+Example:
+
+```
+q0,a → q1,X,R
+q1,a → q1,a,R
+```
+
+Meaning:
+
+* In `q0`, reading `a` → write `X`, move right, go to `q1`
+* In `q1`, reading `a` → read `a`, move right
+
+---
+
+# 5. Transition Table
+
+Same rules in table form:
+
+| Current State | a           | B    |
+| ------------- | ----------- |------|
+| q0            |   (q0,X,R)  | Halt |
+| q1            |   (q1,a,R)  | Halt |
+
+---
+
+# 6. Example: Language → Turing Machine
+
+### Language:
+
+```
+L = { 0ⁿ | n ≥ 1 }
+```
+
+Goal: Accept strings with only `a`
+
+---
+
+### TM Idea:
+
+* Replace each `a` with `X`
+* Move right until blank
+* Accept
+
+---
+
+### Transition Rules:
+
+```
+q0,0 → q1,0,R
+q1,0 → q1,0,R
+q1,B → qf,B,R
+```
+
+---
+
+### Transition Table:
+
+| State | 0        | B        |
+| ----- | -------- | ---------|
+| q0    | (q1,0,R) | Halt     |
+| q1    | (q1,0,R) | (qf,B,R) |
+| qf    | Halt     | Halt     |
+
+---
+
+# 7. Step-by-Step Execution Example
+
+### Input:
+
+```
+000B
+```
+
+(B = blank)
+
+---
+
+### Initial Tape:
+
+```
+q0000B
+```
+
+---
+
+### Steps:
+
+
+- `q0`000BB
+- 0`q1`00BB
+- 00`q1`0BB
+- 000`q1`BB
+- 000B`qf`B
+
+
+---
+
+
+# 8. Key Observations
+
+* TM works by **marking symbols**
+* Uses **back-and-forth scanning**
+* Always track:
+
+  * state position
+  * head movement
+  * tape changes
+
+---
+
+# 9. Common Mistakes
+
+* Duplicate transitions (same state + symbol)
+* Missing blank handling
+* Not returning head correctly
+* Infinite loops
+
+---
+
+# 10. Summary
+
+* TM = most powerful computational model
+* Works using **read → write → move**
+* Problems solved via **marking + scanning**
+* Always show:
+
+  * rules
+  * table
+  * execution
