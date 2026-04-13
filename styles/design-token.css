@@ -1,13 +1,10 @@
 /**
  * Design System - CSS Custom Properties
- * 
- * This file contains design tokens for consistent styling across the application.
- * These variables should be used instead of hardcoded values in component CSS modules.
- * 
+ * Blue/Cyan Tech Theme — Full Redesign
+ *
  * Usage: var(--color-surface-primary)
- * 
- * @author JEEPedia Team
- * @version 1.0.0
+ *
+ * @version 2.0.0
  */
 
 :root {
@@ -15,11 +12,11 @@
    * COLOR SYSTEM
    * =================== */
 
-  /* Primary Brand Colors */
-  --color-primary-start: rgba(195, 84, 255, 1);
-  --color-primary-middle: rgba(106, 127, 246, 1);
-  --color-primary-end: rgba(92, 255, 192, 1);
-  --color-primary-purple: rgba(195, 84, 255, 1);
+  /* Primary Brand Colors — Blue/Cyan */
+  --color-primary-start: rgba(56, 189, 248, 1);       /* sky-400 */
+  --color-primary-middle: rgba(59, 130, 246, 1);      /* blue-500 */
+  --color-primary-end: rgba(6, 182, 212, 1);          /* cyan-500 */
+  --color-primary-purple: rgba(99, 102, 241, 1);      /* indigo accent */
 
   /* Gradient Definitions */
   --gradient-primary: linear-gradient(
@@ -36,185 +33,208 @@
   );
   --gradient-primary-135: linear-gradient(
     135deg,
-    rgb(216, 159, 248) 0%,
-    var(--color-primary-middle) 50%,
-    rgb(124, 232, 190) 100%
+    rgba(56, 189, 248, 0.9) 0%,
+    rgba(59, 130, 246, 1) 50%,
+    rgba(6, 182, 212, 0.9) 100%
   );
   --gradient-muted: linear-gradient(
     135deg,
-    rgb(40, 29, 45) 0%,
-    rgb(32, 35, 54) 50%,
-    rgb(20, 38, 31) 100%
+    rgb(8, 18, 30) 0%,
+    rgb(10, 22, 40) 50%,
+    rgb(6, 16, 28) 100%
   );
 
-  /* Surface Colors (Dark Theme) */
-  --color-surface-primary: rgba(15, 15, 15, 1);
-  --color-surface-secondary: rgba(20, 20, 20, 1);
-  --color-surface-tertiary: rgba(23, 23, 23, 1);
-  --color-surface-quaternary: rgba(28, 28, 28, 1);
-  --color-surface-elevated: rgba(35, 35, 35, 1);
+  /* Surface Colors (Dark Theme) — deep navy blacks */
+  --color-surface-primary: rgba(8, 13, 20, 1);        /* deepest bg */
+  --color-surface-secondary: rgba(10, 17, 28, 1);
+  --color-surface-tertiary: rgba(13, 21, 35, 1);
+  --color-surface-quaternary: rgba(13, 26, 45, 1);    /* panel bg */
+  --color-surface-elevated: rgba(18, 32, 55, 1);      /* elevated cards */
 
-  /* Border Colors */
-  --color-border-primary: rgb(45, 45, 45);
-  --color-border-secondary: rgba(36, 36, 36, 1);
-  --color-border-tertiary: rgba(38, 38, 38, 1);
-  --color-border-muted: rgba(51, 51, 51, 0.5);
-  --color-border-subtle: rgba(55, 55, 55, 1);
-  --color-border-light: rgba(69, 69, 69, 1);
-  --color-border-white: rgba(255, 255, 255, 0.22);
+  /* Border Colors — subtle blue tints */
+  --color-border-primary: rgb(30, 58, 95);
+  --color-border-secondary: rgba(20, 42, 75, 1);
+  --color-border-tertiary: rgba(13, 42, 69, 1);
+  --color-border-muted: rgba(30, 58, 95, 0.5);
+  --color-border-subtle: rgba(37, 65, 105, 1);
+  --color-border-light: rgba(56, 100, 155, 1);
+  --color-border-white: rgba(56, 189, 248, 0.2);
 
   /* Text Colors */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #dadada;
-  --color-text-muted: rgba(255, 255, 255, 0.66);
-  --color-text-subtle: rgba(255, 255, 255, 0.64);
+  --color-text-primary: #e2e8f0;                      /* slate-200 */
+  --color-text-secondary: #94a3b8;                    /* slate-400 */
+  --color-text-muted: rgba(148, 163, 184, 0.75);
+  --color-text-subtle: rgba(148, 163, 184, 0.6);
 
   /* Interactive Selection Colors */
-  --color-selection-bg: #ffffff;
-  --color-selection-text: #000000;
+  --color-selection-bg: rgba(56, 189, 248, 0.25);
+  --color-selection-text: #38bdf8;
 
   /* Overlay Colors */
-  --color-overlay-light: rgba(0, 0, 0, 0.66);
-  --color-overlay-medium: rgba(0, 0, 0, 0.81);
-  --color-overlay-transparent: rgba(0, 0, 0, 0);
+  --color-overlay-light: rgba(8, 13, 20, 0.66);
+  --color-overlay-medium: rgba(8, 13, 20, 0.85);
+  --color-overlay-transparent: rgba(8, 13, 20, 0);
 
-  /* Glass/Backdrop Colors */
-  --color-glass-primary: rgba(35, 35, 35, 0.61);
-  --color-glass-secondary: rgba(56, 56, 56, 0.61);
-  --color-glass-tertiary: rgba(30, 30, 30, 0.5);
-  --color-glass-muted: rgba(52, 52, 52, 0.37);
-  --color-glass-subtle: rgba(61, 61, 61, 0.64);
-  --color-glass-light: rgba(59, 59, 59, 0.5);
+  /* Glass/Backdrop Colors — blue-tinted frosted glass */
+  --color-glass-primary: rgba(13, 26, 45, 0.72);
+  --color-glass-secondary: rgba(18, 35, 60, 0.65);
+  --color-glass-tertiary: rgba(10, 22, 40, 0.55);
+  --color-glass-muted: rgba(20, 40, 70, 0.4);
+  --color-glass-subtle: rgba(25, 50, 85, 0.6);
+  --color-glass-light: rgba(30, 58, 95, 0.5);
+
+  /* Accent / Glow Colors */
+  --color-accent-cyan: rgba(56, 189, 248, 1);         /* #38bdf8 */
+  --color-accent-blue: rgba(59, 130, 246, 1);         /* #3b82f6 */
+  --color-accent-indigo: rgba(99, 102, 241, 1);       /* #6366f1 */
+  --color-accent-glow: rgba(56, 189, 248, 0.25);
+
+  /* Node / State Colors (for graph visualizer) */
+  --color-node-bg: rgba(14, 58, 110, 0.9);
+  --color-node-border: rgba(56, 189, 248, 1);
+  --color-node-text: rgba(56, 189, 248, 1);
+  --color-node-glow: 0 0 14px rgba(56, 189, 248, 0.45);
+  --color-node-active-bg: rgba(6, 182, 212, 0.2);
+  --color-node-active-border: rgba(6, 182, 212, 1);
+  --color-node-final-glow: 0 0 18px rgba(6, 182, 212, 0.5);
+
+  /* Edge / Arrow Colors */
+  --color-edge: rgba(59, 130, 246, 0.7);
+  --color-edge-active: rgba(56, 189, 248, 1);
+  --color-edge-label: rgba(148, 163, 184, 1);
+
+  /* Code block / tape colors */
+  --color-code-bg: rgba(6, 11, 18, 1);
+  --color-code-border: rgba(13, 42, 69, 1);
+  --color-code-text: rgba(125, 211, 252, 1);          /* sky-300 */
+  --color-code-comment: rgba(37, 99, 235, 1);         /* blue-600 */
+  --color-code-keyword: rgba(56, 189, 248, 1);
+  --color-tape-head: rgba(56, 189, 248, 1);
+  --color-tape-cell: rgba(13, 26, 45, 1);
+  --color-tape-cell-active: rgba(14, 58, 110, 1);
 
   /* ===================
    * SPACING SYSTEM
    * =================== */
 
-  /* Base spacing unit */
   --space-unit: 4px;
 
-  /* Spacing Scale */
-  --space-1: calc(var(--space-unit) * 1); /* 4px */
-  --space-2: calc(var(--space-unit) * 2); /* 8px */
-  --space-3: calc(var(--space-unit) * 3); /* 12px */
-  --space-4: calc(var(--space-unit) * 4); /* 16px */
-  --space-5: calc(var(--space-unit) * 5); /* 20px */
-  --space-6: calc(var(--space-unit) * 6); /* 24px */
-  --space-8: calc(var(--space-unit) * 8); /* 32px */
+  --space-1: calc(var(--space-unit) * 1);   /* 4px */
+  --space-2: calc(var(--space-unit) * 2);   /* 8px */
+  --space-3: calc(var(--space-unit) * 3);   /* 12px */
+  --space-4: calc(var(--space-unit) * 4);   /* 16px */
+  --space-5: calc(var(--space-unit) * 5);   /* 20px */
+  --space-6: calc(var(--space-unit) * 6);   /* 24px */
+  --space-8: calc(var(--space-unit) * 8);   /* 32px */
   --space-10: calc(var(--space-unit) * 10); /* 40px */
   --space-12: calc(var(--space-unit) * 12); /* 48px */
   --space-16: calc(var(--space-unit) * 16); /* 64px */
   --space-20: calc(var(--space-unit) * 20); /* 80px */
   --space-24: calc(var(--space-unit) * 24); /* 96px */
 
-  /* Common spacing values */
-  --space-xs: var(--space-1); /* 4px */
-  --space-sm: var(--space-2); /* 8px */
-  --space-md: var(--space-4); /* 16px */
-  --space-lg: var(--space-6); /* 24px */
-  --space-xl: var(--space-8); /* 32px */
-  --space-2xl: var(--space-12); /* 48px */
-  --space-3xl: var(--space-16); /* 64px */
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
+  --space-2xl: var(--space-12);
+  --space-3xl: var(--space-16);
 
   /* ===================
    * BORDER RADIUS SYSTEM
    * =================== */
 
   --radius-none: 0;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 6px;
-  --radius-xl: 7px;
-  --radius-2xl: 8px;
-  --radius-3xl: 10px;
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 7px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
+  --radius-3xl: 12px;
   --radius-full: 9999px;
 
-  /* Common radius values */
-  --radius-button: var(--radius-xl);
+  --radius-button: var(--radius-lg);
   --radius-card: var(--radius-3xl);
-  --radius-input: var(--radius-xl);
+  --radius-input: var(--radius-lg);
 
   /* ===================
    * TYPOGRAPHY SYSTEM
    * =================== */
 
-  /* Font Families */
-  --font-primary: "Roboto", sans-serif;
-  --font-mono: monospace;
-  --font-impact: "Impact", serif;
+  --font-primary: "Inter", "Roboto", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+  --font-impact: "Inter", sans-serif;
 
-  /* Font Sizes */
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-base: 16px;
-  --text-lg: 18px;
-  --text-xl: 22px;
-  --text-2xl: 24px;
-  --text-3xl: 28px;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+  --text-xl: 20px;
+  --text-2xl: 23px;
+  --text-3xl: 27px;
   --text-4xl: 32px;
   --text-5xl: 38px;
 
-  /* Font Weights */
   --font-thin: 100;
-  --font-light: 200;
-  --font-normal: 300;
-  --font-medium: 400;
-  --font-semibold: 500;
-  --font-bold: 600;
-  --font-extrabold: 700;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
   --font-black: 900;
 
-  /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
+  --leading-relaxed: 1.65;
 
-  /* Letter Spacing */
-  --tracking-tight: -0.5px;
+  --tracking-tight: -0.4px;
   --tracking-normal: 0;
-  --tracking-wide: 0.5px;
+  --tracking-wide: 0.4px;
+  --tracking-widest: 1.2px;
 
   /* ===================
    * COMPONENT DIMENSIONS
    * =================== */
 
-  /* Standard component heights */
-  --height-input: 42px;
+  --height-input: 40px;
   --height-button: 34px;
-  --height-nav: 50px;
+  --height-nav: 52px;
 
-  /* Component widths */
   --width-sidebar: 280px;
   --width-container: 1600px;
 
   /* ===================
-   * SHADOW SYSTEM
+   * SHADOW & GLOW SYSTEM
    * =================== */
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-glow: 0px 0px 40px white;
-  --shadow-button: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 10px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.5), 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.5), 0 8px 12px -6px rgba(0, 0, 0, 0.3);
+
+  /* Glow effects for interactive elements */
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.3);
+  --shadow-glow-strong: 0 0 30px rgba(56, 189, 248, 0.5);
+  --shadow-glow-cyan: 0 0 16px rgba(6, 182, 212, 0.4);
+  --shadow-glow-blue: 0 0 16px rgba(59, 130, 246, 0.4);
+  --shadow-button: drop-shadow(0 0 6px rgba(56, 189, 248, 0.35));
+
+  /* Input focus ring */
+  --shadow-focus: 0 0 0 3px rgba(56, 189, 248, 0.2);
 
   /* ===================
    * ANIMATION SYSTEM
    * =================== */
 
-  /* Timing Functions */
   --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  /* Duration */
-  --duration-fast: 0.15s;
+  --duration-fast: 0.12s;
   --duration-normal: 0.2s;
   --duration-slow: 0.3s;
-  --duration-slower: 0.7s;
+  --duration-slower: 0.6s;
 
-  /* Common transitions */
   --transition-fast: all var(--duration-fast) ease;
   --transition-normal: all var(--duration-normal) ease;
   --transition-slow: all var(--duration-slow) ease;
@@ -238,9 +258,9 @@
    * =================== */
 
   --backdrop-blur-sm: blur(4px);
-  --backdrop-blur-md: blur(8px);
+  --backdrop-blur-md: blur(10px);
   --backdrop-blur-lg: blur(20px);
-  --backdrop-blur-xl: blur(30px);
+  --backdrop-blur-xl: blur(32px);
 
   /* ===================
    * RESPONSIVE BREAKPOINTS
@@ -252,46 +272,70 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 
-  /* Legacy support (keep for now, migrate to new system) */
   --default-height: var(--height-button);
 }
 
-/* Light Theme Overrides */
+/* ===================
+ * LIGHT THEME OVERRIDES
+ * =================== */
+
 :root[data-theme="light"] {
-  /* Surface Colors (Light Theme) */
-  --color-surface-primary: rgba(255, 255, 255, 1);
-  --color-surface-secondary: rgba(248, 248, 248, 1);
-  --color-surface-tertiary: rgba(242, 242, 242, 1);
-  --color-surface-quaternary: rgba(235, 235, 235, 1);
-  --color-surface-elevated: rgba(228, 228, 228, 1);
+  /* Light surfaces — cool white/blue-gray */
+  --color-surface-primary: rgba(248, 250, 252, 1);    /* slate-50 */
+  --color-surface-secondary: rgba(241, 245, 249, 1);  /* slate-100 */
+  --color-surface-tertiary: rgba(226, 232, 240, 1);   /* slate-200 */
+  --color-surface-quaternary: rgba(203, 213, 225, 1); /* slate-300 */
+  --color-surface-elevated: rgba(255, 255, 255, 1);
 
-  /* Border Colors */
-  --color-border-primary: rgb(220, 220, 220);
-  --color-border-secondary: rgba(230, 230, 230, 1);
-  --color-border-tertiary: rgba(225, 225, 225, 1);
-  --color-border-muted: rgba(200, 200, 200, 0.5);
-  --color-border-subtle: rgba(210, 210, 210, 1);
-  --color-border-light: rgba(190, 190, 190, 1);
-  --color-border-white: rgba(0, 0, 0, 0.1);
+  --color-border-primary: rgb(186, 211, 235);
+  --color-border-secondary: rgba(203, 224, 244, 1);
+  --color-border-tertiary: rgba(186, 211, 235, 1);
+  --color-border-muted: rgba(147, 192, 230, 0.5);
+  --color-border-subtle: rgba(165, 200, 235, 1);
+  --color-border-light: rgba(125, 175, 220, 1);
+  --color-border-white: rgba(56, 189, 248, 0.25);
 
-  /* Text Colors */
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #4a4a4a;
-  --color-text-muted: rgba(0, 0, 0, 0.66);
-  --color-text-subtle: rgba(0, 0, 0, 0.64);
+  --color-text-primary: #0f172a;                      /* slate-900 */
+  --color-text-secondary: #334155;                    /* slate-700 */
+  --color-text-muted: rgba(51, 65, 85, 0.75);
+  --color-text-subtle: rgba(71, 85, 105, 0.7);
 
-  /* Overlay Colors */
-  --color-overlay-light: rgba(255, 255, 255, 0.66);
-  --color-overlay-medium: rgba(255, 255, 255, 0.81);
-  --color-overlay-transparent: rgba(255, 255, 255, 0);
+  --color-overlay-light: rgba(248, 250, 252, 0.75);
+  --color-overlay-medium: rgba(248, 250, 252, 0.9);
+  --color-overlay-transparent: rgba(248, 250, 252, 0);
 
-  /* Glass/Backdrop Colors */
-  --color-glass-primary: rgba(235, 235, 235, 0.61);
-  --color-glass-secondary: rgba(220, 220, 220, 0.61);
-  --color-glass-tertiary: rgba(245, 245, 245, 0.5);
-  --color-glass-muted: rgba(225, 225, 225, 0.37);
-  --color-glass-subtle: rgba(210, 210, 210, 0.64);
-  --color-glass-light: rgba(220, 220, 220, 0.5);
+  --color-glass-primary: rgba(241, 245, 249, 0.75);
+  --color-glass-secondary: rgba(226, 232, 240, 0.65);
+  --color-glass-tertiary: rgba(248, 250, 252, 0.55);
+  --color-glass-muted: rgba(203, 213, 225, 0.45);
+  --color-glass-subtle: rgba(186, 211, 235, 0.6);
+  --color-glass-light: rgba(203, 224, 244, 0.5);
+
+  /* Nodes in light mode */
+  --color-node-bg: rgba(219, 234, 254, 0.9);          /* blue-100 */
+  --color-node-border: rgba(37, 99, 235, 1);          /* blue-600 */
+  --color-node-text: rgba(29, 78, 216, 1);            /* blue-700 */
+  --color-node-glow: 0 0 12px rgba(59, 130, 246, 0.3);
+  --color-node-active-bg: rgba(224, 242, 254, 1);
+  --color-node-active-border: rgba(14, 165, 233, 1);
+  --color-node-final-glow: 0 0 14px rgba(14, 165, 233, 0.35);
+
+  --color-edge: rgba(96, 165, 250, 0.8);
+  --color-edge-active: rgba(37, 99, 235, 1);
+  --color-edge-label: rgba(100, 116, 139, 1);
+
+  --color-code-bg: rgba(248, 250, 252, 1);
+  --color-code-border: rgba(186, 211, 235, 1);
+  --color-code-text: rgba(29, 78, 216, 1);
+  --color-code-comment: rgba(100, 116, 139, 1);
+  --color-code-keyword: rgba(37, 99, 235, 1);
+  --color-tape-head: rgba(37, 99, 235, 1);
+  --color-tape-cell: rgba(226, 232, 240, 1);
+  --color-tape-cell-active: rgba(186, 230, 253, 1);
+
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
+  --shadow-glow-strong: 0 0 28px rgba(59, 130, 246, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 /* ===================
@@ -322,13 +366,32 @@
   border: 0;
 }
 
-/* Focus styles for accessibility */
 .focus-ring {
-  outline: 2px solid var(--color-primary-middle);
+  outline: 2px solid var(--color-accent-cyan);
   outline-offset: 2px;
 }
 
-/* Common animation classes */
+/* Cyan glow on interactive elements */
+.glow-cyan {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-blue {
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================
+ * ANIMATION CLASSES
+ * =================== */
+
 .animate-fade-in {
   animation: fadeIn var(--duration-normal) ease-in-out;
 }
@@ -337,26 +400,31 @@
   animation: slideUp var(--duration-normal) var(--ease-in-out);
 }
 
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
 /* ===================
  * KEYFRAMES
  * =================== */
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+  50%       { box-shadow: 0 0 24px rgba(56, 189, 248, 0.6); }
+}
+
+@keyframes scanline {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+</style>
