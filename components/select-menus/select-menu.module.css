@@ -2,8 +2,8 @@
   position: relative;
   width: 100%;
   height: var(--height-input);
-  font-family: var(--font-primary);
-  color: var(--color-text-secondary);
+  font-family: "Inter", var(--font-primary), sans-serif;
+  color: #94a3b8;
   user-select: none;
 }
 
@@ -11,18 +11,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  background: var(--color-surface-primary);
-  border-style: solid;
-  border-color: var(--color-border-primary);
-  border-width: 1px;
-  border-radius: var(--radius-xl);
-  padding: var(--space-1) var(--space-2) var(--space-1) var(--space-3);
+  gap: 8px;
+  background: #070e1a;
+  border: 1px solid #1a3352;
+  border-radius: 8px;
+  padding: 4px 8px 4px 12px;
   cursor: pointer;
-  transition: var(--transition-normal);
-  font-size: var(--text-sm);
-  font-weight: var(--font-normal);
-  letter-spacing: var(--tracking-tight);
+  transition: all 0.18s ease;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  height: 100%;
 }
 
 .selectButton span {
@@ -30,155 +29,130 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #94a3b8;
 }
 
 .selectButton .arrowContainer {
-  width: 28px;
-  height: 28px;
-  background: var(--color-surface-tertiary);
-  border-radius: var(--radius-lg);
+  width: 24px;
+  height: 24px;
+  background: #0b1628;
+  border-radius: 6px;
+  border: 1px solid #1a3352;
   position: relative;
-  transition: var(--transition-normal);
+  flex-shrink: 0;
+  transition: all 0.18s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #475569;
 }
 
 .selectButton:hover .arrowContainer {
-  background: var(--color-surface-quaternary);
+  background: #0e2040;
+  border-color: #38bdf8;
+  color: #38bdf8;
 }
 
-/* Hover state */
 .selectButton:hover {
-  background: var(--color-surface-tertiary);
-  border-style: solid;
-  border-color: var(--color-border-secondary);
-  border-width: 1px;
+  background: #0b1628;
+  border-color: #1e3a5f;
+  color: #cbd5e1;
 }
 
 .selectButton:active {
-  background-color: var(--color-surface-primary) !important;
-  border-color: var(--color-border-tertiary);
+  background-color: #070e1a !important;
+  border-color: #1a3352;
 }
 
-/* Active/open state */
 .selectButton.active {
-  background: var(--color-surface-secondary);
-  border-style: Solid;
-  border-color: var(--color-border-secondary);
-  border-width: 1px;
+  background: #0b1628;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.1);
 }
 
 .selectButton .rotate {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 0.28s cubic-bezier(0.87,0,0.13,1);
 }
 
 .selectButton.active .rotate {
-  transform: translate(-50%, -50%) rotate(180deg);
+  transform: translate(-50%,-50%) rotate(180deg);
 }
 
 .dropdown {
   position: absolute;
-  top: calc(100% + 5px); /* Small gap between button and dropdown */
+  top: calc(100% + 5px);
   left: 0;
   width: 100%;
-  border-style: Solid;
-  border-color: var(--color-border-secondary);
-  border-width: 1px;
-  background: var(--color-surface-primary);
-  border-radius: 7px;
-  z-index: 10;
+  border: 1px solid #1a3352;
+  background: #0b1628;
+  border-radius: 8px;
+  z-index: 100;
   overflow: hidden;
-
-  /* Animation properties */
-  transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1),
-    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: height 0.25s cubic-bezier(0.23,1,0.32,1),
+    opacity 0.25s cubic-bezier(0.23,1,0.32,1),
+    transform 0.25s cubic-bezier(0.23,1,0.32,1);
   opacity: 0;
   height: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   transform-origin: top center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(56,189,248,0.06);
 }
 
-.dropdownContent {
-  max-height: 126px;
-  overflow-y: auto;
-}
+.dropdownContent { max-height: 130px; overflow-y: auto; }
 
 .option {
-  padding: 10px 12px;
+  padding: 9px 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 14px;
-  font-weight: 300;
-  border-bottom: 1px solid var(--color-border-secondary);
-  color: var(--color-text-primary);
+  transition: background 0.15s ease, color 0.15s ease;
+  font-size: 0.82rem;
+  font-weight: 400;
+  border-bottom: 1px solid #1a3352;
+  color: #64748b;
+  border-left: 2px solid transparent;
 }
 
-.option:active {
-  background: var(--color-surface-tertiary) !important;
-}
+.option:active { background: #0c1e38 !important; }
 
 .option:hover {
-  background: var(--color-surface-secondary);
+  background: rgba(56,189,248,0.07);
+  color: #7dd3fc;
+  border-left-color: rgba(56,189,248,0.4);
 }
 
 .option.selected {
   font-weight: 600;
-  background: var(--color-surface-tertiary);
+  background: rgba(56,189,248,0.08);
+  color: #38bdf8;
+  border-left-color: #38bdf8;
 }
 
-.option.selected:first-child {
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
-}
+.option:last-child { border-bottom: none; }
 
-.option.selected:last-child {
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
+.dropdownContent::-webkit-scrollbar { width: 0px; }
 
-.dropdownContent::-webkit-scrollbar {
-  width: 0px;
-}
-
-.option:last-child {
-  border-bottom: none;
-}
-
-/* Focus state */
 .selectButton:focus {
-  border-color: var(--color-border-light);
-  box-shadow: 0 0 0 1px var(--color-border-light);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
+  outline: none;
 }
 
-/* Animation states */
 .dropdown.open {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Keyframes for subtle bounce effect */
-@keyframes dropdownBounce {
-  0% {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
-  70% {
-    transform: translateY(2px);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Light theme */
+:root[data-theme="light"] .selectButton {
+  background: #f8fafc; border-color: #bae0fd; color: #475569;
 }
-
-/* Additional animation class that can be applied */
-.animate-dropdown-open {
-  animation: dropdownBounce 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
+:root[data-theme="light"] .selectButton span { color: #475569; }
+:root[data-theme="light"] .selectButton .arrowContainer { background: #f0f7ff; border-color: #bae0fd; color: #64748b; }
+:root[data-theme="light"] .selectButton:hover { background: #f0f7ff; border-color: #93c5fd; }
+:root[data-theme="light"] .selectButton.active { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+:root[data-theme="light"] .dropdown { background: #ffffff; border-color: #bae0fd; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+:root[data-theme="light"] .option { border-bottom-color: #e0f0fe; color: #64748b; }
+:root[data-theme="light"] .option:hover { background: #f0f7ff; color: #1d4ed8; border-left-color: rgba(37,99,235,0.4); }
+:root[data-theme="light"] .option.selected { background: #eff6ff; color: #2563eb; border-left-color: #2563eb; }
