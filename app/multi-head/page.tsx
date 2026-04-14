@@ -802,6 +802,27 @@ export default function MultiHeadSimulator() {
 
   return (
     <main className="tm-shell">
+    <header className="tm-hero">
+  <div className="tm-hero-text">
+    <p className="tm-kicker">Interactive Simulator</p>
+    <h1>Multi-Head Turing Machine</h1>
+    <p>Define machines with compact transition rules, visualize state graphs in real time, and step through execution with multiple heads on a single tape.</p>
+  </div>
+  <div className="tm-hero-stats">
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">∞</span>
+      <span className="tm-hero-stat-label">Tape Length</span>
+    </div>
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">3</span>
+      <span className="tm-hero-stat-label">Max Heads</span>
+    </div>
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">O(n)</span>
+      <span className="tm-hero-stat-label">Step Time</span>
+    </div>
+  </div>
+</header>
       <section className="tm-layout">
         <article className="tm-card tm-sim-card">
           <div className="tm-toolbar">

@@ -947,6 +947,29 @@ const baseSimulatedNodes = useMemo(() => {
 
   return (
     <main className="tm-shell">
+    {/* ADD THIS BLOCK right after <main className="tm-shell"> in page.tsx */}
+
+<header className="tm-hero">
+  <div className="tm-hero-text">
+    <p className="tm-kicker">Interactive Simulator</p>
+    <h1>Multi-Tape Turing Machine</h1>
+    <p>Define machines with compact transition rules, visualize state graphs in real time, and step through execution tape-by-tape. Supports multi-tape and multi-head configurations.</p>
+  </div>
+  <div className="tm-hero-stats">
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">∞</span>
+      <span className="tm-hero-stat-label">Tape Length</span>
+    </div>
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">3</span>
+      <span className="tm-hero-stat-label">Max Tapes</span>
+    </div>
+    <div className="tm-hero-stat">
+      <span className="tm-hero-stat-value">O(n)</span>
+      <span className="tm-hero-stat-label">Step Time</span>
+    </div>
+  </div>
+</header>
       <section className="tm-layout">
         <article className="tm-card tm-sim-card">
           <div className="tm-toolbar">
