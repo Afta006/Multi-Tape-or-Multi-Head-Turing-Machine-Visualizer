@@ -192,6 +192,9 @@ body {
   grid-template-columns: 5fr 5fr;
 }
 
+.tm-layout > .tm-editor-card { order: 1; }
+.tm-layout > .tm-sim-card   { order: 2; }
+
 /* ================================
  * CARDS
  * ================================ */
