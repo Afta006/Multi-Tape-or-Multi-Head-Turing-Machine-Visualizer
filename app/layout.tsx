@@ -15,7 +15,7 @@ const geistMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "TuringKit",
+    title: "Turing-Machine",
     description: "A fast, interactive toolkit for building, visualizing, and simulating Turing Machines. TuringKit lets you define machines with simple configurations, run them step-by-step, and understand computation at a deeper level without unnecessary complexity.",
 }
 

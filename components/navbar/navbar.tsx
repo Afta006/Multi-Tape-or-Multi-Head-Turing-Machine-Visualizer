@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className={styles.inner}>
         <div className={styles.brandSection}>
           <Link href="/" className={styles.brand}>
-            TuringKit
+            Turing-Machine
           </Link>
           <nav className={styles.navLinks}>
             <div className={styles.dropdownContainer} ref={dropdownRef}>
